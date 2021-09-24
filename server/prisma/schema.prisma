@@ -1,0 +1,32 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Bank {
+  id                 Int      @id @default(autoincrement())
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  name                String   
+  image String?
+  interest_rate Float
+  max_loan Int
+  min_down_pay Int
+  loan_term Int
+  history              History[]
+}
+
+model History {
+  id     Int    @id @default(autoincrement())
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  user String
+  init_loan Int
+  down_pay Int
+  bank   Bank   @relation(fields: [bankId], references: [id])
+  bankId Int
+}
