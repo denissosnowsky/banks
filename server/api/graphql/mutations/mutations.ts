@@ -72,7 +72,7 @@ export const Mutation = new GraphQLObjectType({
       },
       async resolve(_parent, args, ctx: ApolloServerContext) {
         try {
-          let imageName: string = "";
+          let imageName: string | undefined = undefined;
           if (args.image) {
             const { filename, createReadStream } = await args.image;
             imageName = uuidv4() + filename;
@@ -80,7 +80,7 @@ export const Mutation = new GraphQLObjectType({
             await new Promise((res) =>
               createReadStream()
                 .pipe(
-                  ctx.googleBucket.file(imageName).createWriteStream({
+                  ctx.googleBucket.file(imageName as string).createWriteStream({
                     resumable: false,
                     gzip: true,
                   })
