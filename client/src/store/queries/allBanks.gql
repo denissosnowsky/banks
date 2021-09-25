@@ -1,0 +1,11 @@
+query AllBanks($banksSkip: Int, $banksTake: Int){
+  banks(skip: $banksSkip, take: $banksTake) {
+    id
+    name
+    image
+    interest_rate
+    max_loan
+    min_down_pay
+    loan_term
+  }
+}

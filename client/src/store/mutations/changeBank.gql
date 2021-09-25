@@ -1,0 +1,19 @@
+mutation ChangeBank(
+  $id: ID!
+  $name: String
+  $image: Upload
+  $interestRate: Float
+  $maxLoan: Int
+  $minDownPay: Int
+  $loanTerm: Int
+) {
+  changeBank(
+    id: $id
+    name: $name
+    image: $image
+    interest_rate: $interestRate
+    max_loan: $maxLoan
+    min_down_pay: $minDownPay
+    loan_term: $loanTerm
+  )
+}

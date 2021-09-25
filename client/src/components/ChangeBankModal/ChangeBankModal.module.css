@@ -1,0 +1,85 @@
+.wrapper {
+  font-size: 18px;
+}
+
+.label label {
+  width: 100%;
+}
+
+.imgHeader {
+  width: 70%;
+  margin: 0 auto;
+  padding: 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.imgHeader input {
+  width: 0px;
+  height: 0px;
+  position: absolute;
+}
+
+.imgLabel {
+  position: absolute;
+  display: block;
+  height: 100%;
+  width: 50%;
+  cursor: pointer;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(256, 256, 256, 0);
+  z-index: 3000;
+}
+
+.imageBtn {
+  width: 50%;
+  height: 100%;
+  color: royalblue !important;
+  font-size: 18px !important;
+}
+
+.preloadCol {
+  height: 150px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.preloadCol img {
+  object-fit: fill;
+  height: 100%;
+  width: 100%;
+}
+
+.preloadRow {
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.deleteImg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+}
+
+.preload img {
+  object-fit: contain;
+  height: 200px;
+  width: 200px;
+  border-radius: 15px 15px 15px 15px;
+}
+
+.preloadRow {
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.firstCol label {
+  width: 100%;
+}

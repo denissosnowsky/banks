@@ -22,10 +22,10 @@ export const RootQuery = new GraphQLObjectType({
       },
     },
     banks: {
-      type: BankType,
+      type: GraphQLList(BankType),
       args: {
-        skip: { type: new GraphQLNonNull(GraphQLInt) },
-        take: { type: new GraphQLNonNull(GraphQLInt) },
+        skip: { type: GraphQLInt },
+        take: { type: GraphQLInt },
       },
       resolve(_parent, { skip, take }, ctx: ApolloServerContext) {
         return ctx.prisma.bank.findMany({
@@ -35,6 +35,12 @@ export const RootQuery = new GraphQLObjectType({
             createdAt: "desc",
           },
         });
+      },
+    },
+    countBanks: {
+      type: GraphQLInt,
+      resolve(_parent, _args, ctx: ApolloServerContext) {
+        return ctx.prisma.bank.count({});
       },
     },
   },

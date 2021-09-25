@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useCallback, useEffect } from "react";
+import { Button } from "react-bootstrap";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import "./App.css";
+import AlertComponent from "./components/AlertComponent/AlertComponent";
+import BankPage from "./components/BankPage/BankPage";
+import CalculationPage from "./components/CalculationPage/CalculationPage";
+import ErrorPage from "./components/ErrorPage/ErrorPage";
+import ListPage from "./components/ListPage/ListPage";
+import { useGetUserId } from "./hooks/useGetUserId";
+import { useDeleteHistoriesMutation } from "./store/generated/graphql";
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <AlertComponent />
+      <Switch>
+        <Route exact path="/" render={() => <Redirect to="/banks" />} />
+        <Route exact path="/banks" render={() => <ListPage />} />
+        <Route exact path="/banks/:id" render={() => <BankPage />} />
+        <Route path="/calculation" render={() => <CalculationPage />} />
+        <Route path="*" render={() => <ErrorPage />} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 

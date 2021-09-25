@@ -22,7 +22,7 @@ export const Mutation = new GraphQLObjectType({
         interest_rate: { type: new GraphQLNonNull(GraphQLFloat) },
         max_loan: { type: new GraphQLNonNull(GraphQLInt) },
         min_down_pay: { type: new GraphQLNonNull(GraphQLInt) },
-        loan_term: { type: new GraphQLNonNull(GraphQLString) },
+        loan_term: { type: new GraphQLNonNull(GraphQLInt) },
       },
       async resolve(_parent, args, ctx: ApolloServerContext) {
         try {
@@ -68,7 +68,7 @@ export const Mutation = new GraphQLObjectType({
         interest_rate: { type: GraphQLFloat },
         max_loan: { type: GraphQLInt },
         min_down_pay: { type: GraphQLInt },
-        loan_term: { type: GraphQLString },
+        loan_term: { type: GraphQLInt },
       },
       async resolve(_parent, args, ctx: ApolloServerContext) {
         try {
@@ -131,7 +131,7 @@ export const Mutation = new GraphQLObjectType({
           const imageName = await ctx.prisma.bank
             .findUnique({
               where: {
-                id: id,
+                id: +id,
               },
             })
             .then((b) => b?.image);
@@ -154,6 +154,7 @@ export const Mutation = new GraphQLObjectType({
         user: { type: new GraphQLNonNull(GraphQLString) },
         init_loan: { type: new GraphQLNonNull(GraphQLInt) },
         down_pay: { type: new GraphQLNonNull(GraphQLInt) },
+        month_pay: { type: new GraphQLNonNull(GraphQLFloat) },
         bankId: { type: new GraphQLNonNull(GraphQLID) },
       },
       async resolve(_parent, args, ctx: ApolloServerContext) {
@@ -163,7 +164,8 @@ export const Mutation = new GraphQLObjectType({
               user: args.user,
               init_loan: args.init_loan,
               down_pay: args.down_pay,
-              bankId: args.bankId,
+              month_pay: args.month_pay,
+              bankId: +args.bankId,
             },
           });
           return true;
@@ -178,11 +180,16 @@ export const Mutation = new GraphQLObjectType({
         user: { type: new GraphQLNonNull(GraphQLString) },
       },
       async resolve(_parent, { user }, ctx: ApolloServerContext) {
-        await ctx.prisma.history.deleteMany({
-          where: {
-            user: user,
-          },
-        });
+        try {
+          await ctx.prisma.history.deleteMany({
+            where: {
+              user: user,
+            },
+          });
+          return true;
+        } catch (e) {
+          return false;
+        }
       },
     },
   },

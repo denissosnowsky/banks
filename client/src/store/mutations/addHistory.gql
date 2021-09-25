@@ -1,0 +1,15 @@
+mutation AddHistory(
+  $user: String!
+  $initLoan: Int!
+  $downPay: Int!
+  $monthPay: Float!
+  $id: ID!
+) {
+  addHistory(
+    user: $user
+    init_loan: $initLoan
+    down_pay: $downPay
+    month_pay: $monthPay
+    bankId: $id
+  )
+}

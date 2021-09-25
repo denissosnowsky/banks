@@ -1,0 +1,52 @@
+.form {
+  width: 30%!important;
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.formWrapper {
+  width: 100%;
+  position: relative;
+}
+
+.formRowHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  color: royalblue;
+  width: 100%;
+  margin-bottom: 20px;
+  --bs-gutter-x: 0rem !important;
+}
+
+.formRowHeader span {
+  display: block;
+  width: fit-content;
+  margin-bottom: 15px;
+}
+
+.option{
+    cursor: pointer;
+}
+
+.result{
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    color: royalblue;
+    font-weight: 500;
+    width: 100%;
+    margin-top: 20px!important;
+    margin-bottom: 20px;
+}
+
+.desc{
+  font-size: 15px;
+  color: #000;
+  width: fit-content!important;
+}

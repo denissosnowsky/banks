@@ -1,0 +1,15 @@
+overwrite: true
+schema:
+  - "http://localhost:5000/graphql"
+documents:
+  - "src/store/queries/*.gql"
+  - "src/store/mutations/*.gql"
+generates:
+  src/store/generated/graphql.tsx:
+    config:
+      useIndexSignature: true
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-resolvers"
+      - "typescript-react-apollo"

@@ -1,0 +1,3 @@
+mutation DeleteHistories($user: String!) {
+  deleteHistories(user: $user)
+}

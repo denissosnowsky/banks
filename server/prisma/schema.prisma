@@ -27,6 +27,7 @@ model History {
   user String
   init_loan Int
   down_pay Int
+  month_pay Float
   bank   Bank   @relation(fields: [bankId], references: [id])
   bankId Int
 }

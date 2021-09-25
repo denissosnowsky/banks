@@ -1,0 +1,14 @@
+.col {
+  display: flex;
+  align-items: center;
+  color: royalblue;
+}
+
+.history {
+  font-size: 20px;
+}
+
+.history span {
+  font-size: 21px;
+  font-weight: 500;
+}

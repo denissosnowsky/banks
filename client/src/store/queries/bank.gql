@@ -1,0 +1,19 @@
+query Bank($id: ID!, $user: String!){
+  bank(id: $id) {
+    id
+    name
+    image
+    interest_rate
+    max_loan
+    min_down_pay
+    loan_term
+    history(user: $user) {
+      id
+      createdAt
+      user
+      init_loan
+      down_pay
+      month_pay
+    }
+  }
+}

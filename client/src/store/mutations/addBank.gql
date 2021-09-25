@@ -1,0 +1,17 @@
+mutation AddBank(
+  $name: String!
+  $interestRate: Float!
+  $maxLoan: Int!
+  $minDownPay: Int!
+  $loanTerm: Int!
+  $image: Upload
+) {
+  addBank(
+    name: $name
+    interest_rate: $interestRate
+    max_loan: $maxLoan
+    min_down_pay: $minDownPay
+    loan_term: $loanTerm
+    image: $image
+  )
+}

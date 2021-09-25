@@ -1,0 +1,72 @@
+.title {
+  font-size: 25px;
+  color: tomato;
+}
+
+.desc {
+  font-size: 22px;
+}
+
+.imgWrapper {
+  width: 90%;
+  height: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 10px 10px 10px 10px;
+}
+
+.imgWrapper img {
+  object-fit: fill;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.infoRow {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.infoRow::after {
+  height: 1px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.125);
+  content: "";
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.formRowHeader {
+  display: flex;
+  justify-content: center;
+  font-size: 35px;
+  color: royalblue;
+  width: 100%;
+  margin-bottom: 20px;
+  --bs-gutter-x: 0rem !important;
+}
+
+.formRowHeader span {
+  display: block;
+  width: fit-content;
+  margin-bottom: 15px;
+}
+
+.formRowMain {
+  margin-bottom: 50px;
+  width: 100%;
+  --bs-gutter-x: 0rem !important;
+}
+
+.listRow {
+  position: relative;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.emptyHis{
+  font-size: 34px;
+  text-align: center;
+  margin-top: 10px;
+}
