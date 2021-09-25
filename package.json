@@ -8,6 +8,6 @@
     "install:client": "cd client && yarn install",
     "install:server": "cd server && yarn install",
     "migrate": "cd server && yarn run first_migrate",
-    "start": "concurrently  \"yarn run start:server\" \"yarn run start:client\"",
+    "start": "concurrently  \"yarn run start:server\" \"yarn run start:client\""
   }
 }
