@@ -1,7 +1,8 @@
 {
   "scripts": {
     "dev": "ts-node-dev --transpile-only --no-notify api/server.ts",
-    "migrate": "npx prisma migrate dev"
+    "migrate": "npx prisma migrate dev",
+    "first_migrate": "npx prisma migrate dev --name init"
   },
   "type": "module",
   "dependencies": {
